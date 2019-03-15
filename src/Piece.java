@@ -12,5 +12,9 @@ public abstract class Piece {
         this.color = color;
     }
 
+    public Alliance getAlliance(){
+        return color;
+    }
+
     public abstract List<Move> checkMoves(final Board board);
 }
