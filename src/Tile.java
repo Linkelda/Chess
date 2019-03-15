@@ -1,8 +1,8 @@
 public class Tile {
-    int x;
-    int y;
-    boolean isEmpty;
-    Piece piece;
+    private int x;
+    private int y;
+    private boolean isEmpty;
+    private Piece piece;
 
     Tile(int x, int y) {
         this.x = x;
@@ -21,6 +21,10 @@ public class Tile {
     public void setPiece(Piece piece){
         isEmpty = false;
         this.piece = piece;
+    }
+
+    public boolean isEmpty(){
+        return isEmpty;
     }
 
     public Piece getPiece(){
