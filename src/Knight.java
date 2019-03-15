@@ -22,12 +22,13 @@ public class Knight extends Piece {
     public List<Move> checkMoves(final Board board){
         List<Move> moves = new ArrayList<>();
         for (Pair<Integer, Integer> possibility : possibilities) {
-            if (Tile.isValidCoordinate(this.x + possibility.getKey(), this.y + possibility.getValue())){
+            if (Tile.isValidCoordinate(this.x + possibility.getKey(), this.y + possibility.getValue())) {
                 final Tile destination = board.getTile(x, y);
-                if (destination.isEmpty || destination.getPiece().getAlliance() != color){
+                if (destination.isEmpty || destination.getPiece().getAlliance() != color) {
                     moves.add(new Move());
                 }
             }
         }
+        return moves;
     }
 }
