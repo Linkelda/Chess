@@ -1,3 +1,9 @@
+package pieces;
+
+import board.Alliance;
+import board.Board;
+import board.Move;
+
 import java.util.List;
 
 public abstract class Piece {

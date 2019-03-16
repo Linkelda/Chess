@@ -1,7 +1,14 @@
+package pieces;
+
+import board.Tile;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import board.Alliance;
+import board.Board;
+import board.Move;
 
 public class Rook extends Piece {
 

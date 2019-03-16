@@ -1,5 +1,10 @@
-import javafx.util.Pair;
+package pieces;
 
+import board.Alliance;
+import board.Board;
+import board.Move;
+import board.Tile;
+import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +31,12 @@ public class Bishop extends Piece {
             {
                 final Tile destination = board.getTile(x_, y_);
                 if (destination.isEmpty()) {
-                    moves.add(new Move());
+                    moves.add(new Move.SimpleMove(board, this, x_, y_));
                 }
                 else {
                     final Piece p = destination.getPiece();
                     if (p.getAlliance() != this.color)
-                        moves.add(new Move());
+                        moves.add(new Move.AttackMove(board, this, x_, y_, p));
                     break;
                 }
             }

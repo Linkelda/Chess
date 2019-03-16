@@ -1,7 +1,12 @@
-import javafx.util.Pair;
+package pieces;
 
+import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
+
+import board.Alliance;
+import board.Board;
+import board.Move;
 
 public class Queen extends Piece {
 
