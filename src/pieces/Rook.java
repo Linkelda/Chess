@@ -10,6 +10,8 @@ import board.Alliance;
 import board.Board;
 import board.Move;
 
+import board.Move.*;
+
 public class Rook extends Piece {
 
     private final List<Pair<Integer, Integer>> possibilities;
@@ -32,12 +34,12 @@ public class Rook extends Piece {
             {
                 final Tile destination = board.getTile(x_, y_);
                 if (destination.isEmpty()) {
-                    moves.add(new Move());
+                    moves.add(new SimpleMove(board, this, x_, y_));
                 }
                 else {
                     final Piece p = destination.getPiece();
                     if (p.getAlliance() != this.color)
-                        moves.add(new Move());
+                        moves.add(new AttackMove(board, this, x_, y_, p));
                     break;
                 }
             }

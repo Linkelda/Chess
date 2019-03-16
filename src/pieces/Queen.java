@@ -1,5 +1,6 @@
 package pieces;
 
+import board.Tile;
 import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.List;
 import board.Alliance;
 import board.Board;
 import board.Move;
+
+import board.Move.*;
 
 public class Queen extends Piece {
 
@@ -35,12 +38,12 @@ public class Queen extends Piece {
             {
                 final Tile destination = board.getTile(x_, y_);
                 if (destination.isEmpty()) {
-                    moves.add(new Move());
+                    moves.add(new SimpleMove(board, this, x_, y_));
                 }
                 else {
                     final Piece p = destination.getPiece();
                     if (p.getAlliance() != this.color)
-                        moves.add(new Move());
+                        moves.add(new AttackMove(board, this, x_, y_, p));
                     break;
                 }
             }
