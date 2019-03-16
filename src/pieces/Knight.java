@@ -3,6 +3,8 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Move.*;
+
 public class Knight extends Piece {
 
     private final List<Pair<Integer, Integer>> possibilities;
@@ -25,8 +27,10 @@ public class Knight extends Piece {
         for (Pair<Integer, Integer> possibility : possibilities) {
             if (Tile.isValidCoordinate(this.x + possibility.getKey(), this.y + possibility.getValue())) {
                 final Tile destination = board.getTile(x, y);
-                if (destination.isEmpty() || destination.getPiece().getAlliance() != color) {
-                    moves.add(new Move());
+                if (destination.isEmpty()) {
+                    moves.add(new SimpleMove(board, this, x + possibility.getKey(), y + possibility.getValue()));
+                } else if (destination.getPiece().getAlliance() != color) {
+
                 }
             }
         }

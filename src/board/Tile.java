@@ -1,3 +1,7 @@
+package board;
+
+import pieces.Piece;
+
 public class Tile {
     private int x;
     private int y;
