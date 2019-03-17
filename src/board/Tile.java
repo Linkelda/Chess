@@ -38,4 +38,14 @@ public class Tile {
     public static boolean isValidCoordinate(int x, int y) {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
+
+    @Override
+    public String toString()
+    {
+        if (isEmpty)
+            return "-";
+
+        String text = piece.toString();
+        return (piece.getAlliance() == Alliance.BLACK)? text.toLowerCase() : text;
+    }
 }

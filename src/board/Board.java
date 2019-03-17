@@ -47,7 +47,7 @@ public class Board {
         builder.setPiece(new Knight(0,1, Alliance.BLACK));
         builder.setPiece(new Knight(0,6, Alliance.BLACK));
         builder.setPiece(new Bishop(0,2, Alliance.BLACK));
-        builder.setPiece(new Knight(0,5, Alliance.BLACK));
+        builder.setPiece(new Bishop(0,5, Alliance.BLACK));
         builder.setPiece(new Queen(0,3, Alliance.BLACK));
         builder.setPiece(new King(0,4, Alliance.BLACK));
         for (int i = 0; i < 8; i++) {
@@ -59,7 +59,7 @@ public class Board {
         builder.setPiece(new Knight(7,1, Alliance.WHITE));
         builder.setPiece(new Knight(7,6, Alliance.WHITE));
         builder.setPiece(new Bishop(7,2, Alliance.WHITE));
-        builder.setPiece(new Knight(7,5, Alliance.WHITE));
+        builder.setPiece(new Bishop(7,5, Alliance.WHITE));
         builder.setPiece(new Queen(7,3, Alliance.WHITE));
         builder.setPiece(new King(7,4, Alliance.WHITE));
         for (int i = 0; i < 8; i++) {
@@ -70,9 +70,23 @@ public class Board {
         return builder.build();
 
     }
+
     public Tile getTile(int x, int y)
     {
         return chessBoard.get(x * 8 + y);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                String tile = chessBoard.get(i * 8 + j).toString();
+                sb.append(tile);
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     public static class Builder {

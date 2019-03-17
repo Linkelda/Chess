@@ -28,4 +28,24 @@ public abstract class Piece {
     }
 
     public abstract List<Move> checkMoves(final Board board);
+
+    public enum Category {
+        ROOK("R"),
+        KNIGHT("N"),
+        BISHOP("B"),
+        KING("K"),
+        QUEEN("Q"),
+        PAWN("P");
+
+        private String name;
+
+        Category(final String name){
+            this.name = name;
+        }
+
+        @Override
+        public String toString(){
+            return name;
+        }
+    }
 }
