@@ -18,7 +18,7 @@ public class Tile {
     Tile(int x, int y, Piece piece) {
         this.x = x;
         this.y = y;
-        isEmpty = !(piece == null);
+        isEmpty = piece == null;
         this.piece = piece;
     }
 

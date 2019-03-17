@@ -4,10 +4,7 @@ import board.Tile;
 import javafx.util.Pair;
 import pieces.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Board {
 
@@ -24,8 +21,10 @@ public class Board {
     private static List<Tile> createChessBoard(final Builder builder) {
         List<Tile> tiles = new ArrayList<>();
         for (int i = 0; i < 8; i++){
-            for (int j = 0; j < 8; j++)
+            for (int j = 0; j < 8; j++){
                 tiles.add(new Tile(i, j, builder.config.get(new Pair(i, j))));
+            }
+
         }
         return tiles;
     }
@@ -81,6 +80,7 @@ public class Board {
         Alliance currentPlayer;
 
         public Builder(){
+            config = new HashMap<>();
         }
 
         public Builder setPiece(final Piece piece){
@@ -90,6 +90,7 @@ public class Board {
 
         public Builder setCurrentPlayer(final Alliance currentPlayer){
             this.currentPlayer = currentPlayer;
+            return this;
         }
 
         public Board build(){
