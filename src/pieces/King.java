@@ -15,7 +15,7 @@ public class King extends Piece {
 
     private final List<Pair<Integer, Integer>> possibilities;
 
-    King(final int x, final int y, final Alliance color){
+    public King(final int x, final int y, final Alliance color){
         super(x, y, color);
         possibilities = new ArrayList<>();
         possibilities.add(new Pair(-1, -1));

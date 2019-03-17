@@ -16,7 +16,7 @@ public class Pawn extends Piece {
     private boolean isFirstMove;
     private int direction;
 
-    Pawn(final int x, final int y, final Alliance color){
+    public Pawn(final int x, final int y, final Alliance color){
         super(x, y, color);
         isFirstMove = true;
         direction = (color == Alliance.BLACK)? 1 : -1;

@@ -14,7 +14,7 @@ public class Bishop extends Piece {
 
     private final List<Pair<Integer, Integer>> possibilities;
 
-    Bishop(final int x, final int y, final Alliance color){
+    public Bishop(final int x, final int y, final Alliance color){
         super(x, y, color);
         possibilities = new ArrayList<>();
         possibilities.add(new Pair(-1, -1));

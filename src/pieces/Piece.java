@@ -3,6 +3,7 @@ package pieces;
 import board.Alliance;
 import board.Board;
 import board.Move;
+import javafx.util.Pair;
 
 import java.util.List;
 
@@ -20,6 +21,10 @@ public abstract class Piece {
 
     public Alliance getAlliance(){
         return color;
+    }
+
+    public Pair<Integer, Integer> getPosition(){
+        return new Pair(x, y);
     }
 
     public abstract List<Move> checkMoves(final Board board);
