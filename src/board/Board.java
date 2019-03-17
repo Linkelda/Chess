@@ -5,15 +5,20 @@ import javafx.util.Pair;
 import pieces.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 public class Board {
 
     private final List<Tile> chessBoard;
+    private final Collection<Piece> whitePieces;
+    private final Collection<Piece> blackPieces;
 
     private Board(Builder builder){
         this.chessBoard = createChessBoard(builder);
+        this.whitePieces = calculatePieces(chessBoard, Alliance.WHITE);
+        this.blackPieces = calculatePieces(chessBoard, Alliance.BLACK);
     }
 
     private static List<Tile> createChessBoard(final Builder builder) {
@@ -23,6 +28,16 @@ public class Board {
                 tiles.add(new Tile(i, j, builder.config.get(new Pair(i, j))));
         }
         return tiles;
+    }
+
+    private Collection<Piece> calculatePieces(final List<Tile> chessBoard, final Alliance color)
+    {
+        final List<Piece> pieces = new ArrayList<>();
+        for (Tile tile : chessBoard) {
+            if (!tile.isEmpty() && tile.getPiece().getAlliance() == color)
+                pieces.add(tile.getPiece());
+        }
+        return pieces;
     }
 
     public static Board createNewBoard() {
